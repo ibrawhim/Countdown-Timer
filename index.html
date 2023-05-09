@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #0047ab;
+        }
+        input {
+            /* border: none; */
+            width: 45px;
+            padding: 10px;
+            font-size: 35px;
+            text-align: center;
+        }
+        button {
+            /* border-radius: 100%; */
+            padding: 20px;
+            /* border: none; */
+            position: absolute;
+            /* top: -10; */
+            right: 450px;
+        }
+    </style>
+</head>
+<body style="position: relative;">
+    <div style="display: grid; justify-content: center; align-items: center; margin-top: 15%;">
+        <h1>Countdown Timer</h1>
+        <div>
+        <input type="text" placeholder="5" id="hh">
+        <input type="text" placeholder="0" id="mm">
+        <input type="text" placeholder="0" id="ss">
+        <button onclick="startCountdown()"><img src="./play.svg" alt=""></button>
+        </div>
+    </div>
+
+    <script>
+        hh.value = 5
+        mm.value = 59
+        ss.value = 59
+        const startCountdown = () => {
+            if(ss.value==0) {
+                mm.value--
+                setTimeout(startCountdown,1000)
+                ss.value=59
+            }else {
+                ss.value = ss.value-1
+                setTimeout(startCountdown,1000)
+            }
+            if(mm.value==0) {
+                hh.value--
+                mm.value=59
+            }
+        }
+    </script>
+</body>
+</html>
